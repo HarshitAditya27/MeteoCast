@@ -1,3 +1,4 @@
+import CurrentWeather from "@/components/current-weather";
 import WeatherSkeleton from "@/components/loading-skeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -16,11 +17,13 @@ function WeatherDashboard() {
     getLocation,
     isLoading: locationLoading,
   } = useGeolocation();
-  //console.log(coordinates);
+  console.log("coordinates", coordinates);
   const weatherQuery = useWeatherQuery(coordinates);
   const forecastQuery = useForecastQuery(coordinates);
   const locationQuery = useReverseForecastQuery(coordinates);
-  console.log(locationQuery);
+  //console.log("weatherQuery", weatherQuery);
+  //console.log("forecastQuery", forecastQuery);
+  console.log("locationQuery", locationQuery);
   const handleRefresh = () => {
     getLocation();
     if (coordinates) {
@@ -90,8 +93,29 @@ function WeatherDashboard() {
           onClick={handleRefresh}
           disabled={weatherQuery.isFetching || forecastQuery.isFetching}
         >
-          <RefreshCw className="h-4 w-4" />
+          <RefreshCw
+            className={`h-4 w-4 ${
+              weatherQuery.isFetching ? "animate-spin" : ""
+            } `}
+          />
         </Button>
+      </div>
+      <div className="grid gap-6">
+        <div>
+          {/* <CurrentWeather
+            data={weatherQuery.data}
+            locationName={locationName}
+          /> */}
+          {weatherQuery.data ? (
+            <CurrentWeather
+              data={weatherQuery.data}
+              locationName={locationName}
+            />
+          ) : (
+            ""
+          )}
+        </div>
+        <div></div>
       </div>
     </div>
   );

@@ -3,6 +3,15 @@ export interface Coordinates {
   lon: number;
 }
 
+export interface GeocodingResponse {
+  name: string;
+  local_names?: Record<string, string>;
+  lat: number;
+  lon: number;
+  country: string;
+  state?: string;
+}
+
 export interface WeatherCondition {
   id: number;
   main: string;
@@ -48,13 +57,4 @@ export interface ForecastData {
     sunrise: number;
     sunset: number;
   };
-}
-
-export interface GeocodingResponse {
-  name: string;
-  local_names?: Record<string, string>;
-  lat: number;
-  lon: number;
-  country: string;
-  state?: string;
 }

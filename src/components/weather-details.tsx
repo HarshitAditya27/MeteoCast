@@ -62,8 +62,12 @@ function WeatherDetails({ data }: WeatherDetailsProps) {
             >
               <detail.icon className={`h-5 w-5 ${detail.color}`} />
               <div>
-                <p>{detail.title}</p>
-                <p>{detail.value}</p>
+                <p className="text-sm font-medium leading-none">
+                  {detail.title}
+                </p>
+                <p className="text-sm font-medium leading-none">
+                  {detail.value}
+                </p>
               </div>
             </div>;
           })}

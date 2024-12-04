@@ -1,4 +1,5 @@
-import CurrentWeather from "@/components/current-weather";
+import { CurrentWeather } from "@/components/current-weather";
+import FavoriteCities from "@/components/favorite-cities";
 import HourlyTemperature from "@/components/hourly-temperature";
 import WeatherSkeleton from "@/components/loading-skeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -24,9 +25,7 @@ function WeatherDashboard() {
   const weatherQuery = useWeatherQuery(coordinates);
   const forecastQuery = useForecastQuery(coordinates);
   const locationQuery = useReverseForecastQuery(coordinates);
-  //console.log("weatherQuery", weatherQuery);
-  //console.log("forecastQuery", forecastQuery);
-  console.log("locationQuery", locationQuery);
+
   const handleRefresh = () => {
     getLocation();
     if (coordinates) {
@@ -86,46 +85,41 @@ function WeatherDashboard() {
     );
   }
 
+  if (!weatherQuery.data || !forecastQuery.data) {
+    return <WeatherSkeleton />;
+  }
+
   return (
     <div className="space-y-4">
+      <FavoriteCities />
       <div className="flex items-center justify-between">
         <h1 className="text-xl font-bold tracking-tight">My Location</h1>
         <Button
-          variant={"outline"}
-          size={"icon"}
+          variant="outline"
+          size="icon"
           onClick={handleRefresh}
           disabled={weatherQuery.isFetching || forecastQuery.isFetching}
         >
           <RefreshCw
             className={`h-4 w-4 ${
               weatherQuery.isFetching ? "animate-spin" : ""
-            } `}
+            }`}
           />
         </Button>
       </div>
       <div className="grid gap-6">
         <div className="flex flex-col lg:flex-row gap-4">
-          {/* <CurrentWeather
+          <CurrentWeather
             data={weatherQuery.data}
             locationName={locationName}
-          /> */}
-          {weatherQuery.data ? (
-            <CurrentWeather
-              data={weatherQuery.data}
-              locationName={locationName}
-            />
-          ) : (
-            ""
-          )}
-          {weatherQuery.data ? (
-            <HourlyTemperature data={forecastQuery.data} />
-          ) : (
-            ""
-          )}
-          {weatherQuery.data ? <WeatherDetails data={weatherQuery.data} /> : ""}
+          />
+
+          <HourlyTemperature data={forecastQuery.data} />
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 items-start">
+          <WeatherDetails data={weatherQuery.data} />
           <WeatherForecast data={forecastQuery.data} />
         </div>
-        <div></div>
       </div>
     </div>
   );

@@ -1,14 +1,13 @@
 import type { GeocodingResponse, WeatherData } from "@/api/types";
-import React from "react";
 import { Card, CardContent } from "./ui/card";
-import { ArrowDown, ArrowUp, Droplet, Droplets, Wind } from "lucide-react";
+import { ArrowDown, ArrowUp, Droplets, Wind } from "lucide-react";
 
 interface CurrentWeatherProps {
   data: WeatherData;
   locationName?: GeocodingResponse;
 }
 
-function CurrentWeather({ data, locationName }: CurrentWeatherProps) {
+export function CurrentWeather({ data, locationName }: CurrentWeatherProps) {
   const {
     weather: [currentWeather],
     main: { temp, feels_like, temp_min, temp_max, humidity },
@@ -24,7 +23,9 @@ function CurrentWeather({ data, locationName }: CurrentWeatherProps) {
           <div className="space-y-4">
             <div className="space-y-2">
               <div className="flex items-center">
-                <h2>{locationName?.name}</h2>
+                <h2 className="text-2xl font-bold tracking-tight">
+                  {locationName?.name}
+                </h2>
                 {locationName?.state && (
                   <span className="text-muted-foreground">
                     , {locationName?.state}
@@ -92,5 +93,3 @@ function CurrentWeather({ data, locationName }: CurrentWeatherProps) {
     </Card>
   );
 }
-
-export default CurrentWeather;

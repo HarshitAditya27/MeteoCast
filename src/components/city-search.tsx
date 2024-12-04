@@ -14,6 +14,8 @@ import { Clock, Loader2, Search, Star, XCircle } from "lucide-react";
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import { useLocationSearch } from "@/hooks/use-weather";
+import { useFavorite } from "@/hooks/use-favorites";
+import { useSearchHistory } from "@/hooks/use-search-history";
 
 function CitySearch() {
   const [open, setOpen] = useState(false);
@@ -21,13 +23,11 @@ function CitySearch() {
   const navigate = useNavigate();
 
   const { data: locations, isLoading } = useLocationSearch(query);
-  const { favorites } = useFavorites();
+  const { favorites } = useFavorite();
   const { history, clearHistory, addToHistory } = useSearchHistory();
 
   const handleSelect = (cityData: string) => {
     const [lat, lon, name, country] = cityData.split("|");
-
-    // Add to search history
     addToHistory.mutate({
       query,
       name,
@@ -84,7 +84,6 @@ function CitySearch() {
               </CommandGroup>
             )}
 
-            {/* Search History Section */}
             {history.length > 0 && (
               <>
                 <CommandSeparator />
@@ -126,8 +125,6 @@ function CitySearch() {
                 </CommandGroup>
               </>
             )}
-
-            {/* Search Results */}
             <CommandSeparator />
             {locations && locations.length > 0 && (
               <CommandGroup heading="Suggestions">

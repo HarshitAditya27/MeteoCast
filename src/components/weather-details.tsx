@@ -55,7 +55,7 @@ function WeatherDetails({ data }: WeatherDetailsProps) {
       </CardHeader>
       <CardContent>
         <div className="grid gap-6 sm:grid-cols-2">
-          {details.map((detail) => {
+          {details.map((detail) => (
             <div
               key={detail.title}
               className="flex items-center gap-3 rounded-lg border p-4"
@@ -65,12 +65,10 @@ function WeatherDetails({ data }: WeatherDetailsProps) {
                 <p className="text-sm font-medium leading-none">
                   {detail.title}
                 </p>
-                <p className="text-sm font-medium leading-none">
-                  {detail.value}
-                </p>
+                <p className="text-sm text-muted-foreground">{detail.value}</p>
               </div>
-            </div>;
-          })}
+            </div>
+          ))}
         </div>
       </CardContent>
     </Card>

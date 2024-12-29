@@ -1,7 +1,7 @@
 <p align='center'><img src='https://github.com/user-attachments/assets/511ff359-5457-4dc0-90c0-9be4b2df5937' width="250" ></p>
 <h1 align='center'>MeteoCast</h1> 
 
-<p align='center'> <a href="https://meteocast.netlify.app/">Deployed Link </a> | <a href="">Demo Link</a> </p>
+<p align='center'> <a href="https://meteocast.netlify.app/">Deployed Link </a> | <a href="https://youtu.be/U-OtSAssjiQ">Demo Link</a> </p>
 
 
 ## Introduction 🐱‍💻

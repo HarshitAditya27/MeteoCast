@@ -1,5 +1,6 @@
-<p align='center'><img src='' width="250" ></p>
+<p align='center'><img src='https://github.com/user-attachments/assets/511ff359-5457-4dc0-90c0-9be4b2df5937' width="250" ></p>
 <h1 align='center'>MeteoCast</h1> 
+
 <p align='center'> <a href="https://meteocast.netlify.app/">Deployed Link </a> | <a href="">Demo Link</a> </p>
 
 
@@ -57,7 +58,14 @@ VITE_OPENWEATHER_API_KEY
 ``` 
 
   ## Screenshots  
-
+![Screenshot (1027)](https://github.com/user-attachments/assets/4372be8c-ac2c-4f75-aac1-2b7156442fa3)
+![Screenshot (1028)](https://github.com/user-attachments/assets/d67841b1-e667-419d-a3b7-43db0a82869a)
+![Screenshot (1034)](https://github.com/user-attachments/assets/7123e31d-9fac-4444-8756-6c3c4a942f2a)
+![Screenshot (1029)](https://github.com/user-attachments/assets/99a1d8ad-6c39-4e6f-a8c7-dce53ac00232)
+![Screenshot (1030)](https://github.com/user-attachments/assets/f3a03d6e-1ecc-4bc0-baa1-06652419b50c)
+![Screenshot (1031)](https://github.com/user-attachments/assets/b488e496-93ce-4864-a2dc-19173658553d)
+![Screenshot (1032)](https://github.com/user-attachments/assets/db845a34-5efd-48e5-ac8e-0757558a6213)
+![Screenshot (1033)](https://github.com/user-attachments/assets/2376bb4e-6cd6-4e7b-b520-87f255a8d7b3)
 
   ## Loved the project 💖? 
   
